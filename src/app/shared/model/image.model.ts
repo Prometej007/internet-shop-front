@@ -1,4 +1,4 @@
-export class Image {
+export class ImageModel {
 
   path: string;
   content: string;
