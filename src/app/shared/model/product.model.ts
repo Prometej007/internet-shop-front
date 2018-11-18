@@ -1,17 +1,20 @@
-import {DictionaryModel} from "./dictionary.model";
-import {ImageModel} from "./image.model";
-import {CategoryModel} from "./category.model";
-import {MaterialsModel} from "./materials.model";
-import {BaseModel} from "./base-model";
+import {DictionaryModel} from './dictionary.model';
+import {ImageModel} from './image.model';
+import {CategoryModel} from './category.model';
+import {MaterialsModel} from './materials.model';
+import {BaseModel} from './base-model';
 
-export class ProductModel extends BaseModel{
+export type SoftnessType = 'SOFT' | 'MODERATELY_SOFT' | 'MIDDLE' | 'MODERATELY_HARD' | 'HARD';
+export type ProductType = 'UNILATERAL' | 'DOUBLE_SIDED';
+
+export class ProductModel extends BaseModel {
 
   name: DictionaryModel;
   description: DictionaryModel;
   image: ImageModel;
   category: CategoryModel;
-  softnessTypes: string;
-  productType: string;
+  softnessTypes: SoftnessType[] = [];
+  productType: ProductType;
   materials: MaterialsModel[] = [];
   models: string;
   height: number;

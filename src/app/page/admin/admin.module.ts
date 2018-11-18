@@ -9,6 +9,8 @@ import { AnalyticsFunctionComponent } from './analytics-function/analytics-funct
 import { AddMaterialComponent } from './product-function/add-material/add-material.component';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import { CreateImageComponent } from './source/create-image/create-image.component';
+import { AddCategoryComponent } from './product-function/add-category/add-category.component';
+import { AddProductComponent } from './product-function/add-product/add-product.component';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { CreateImageComponent } from './source/create-image/create-image.compone
     BuyFunctionComponent,
     AnalyticsFunctionComponent,
     AddMaterialComponent,
-    CreateImageComponent]
+    CreateImageComponent,
+    AddCategoryComponent,
+    AddProductComponent]
 })
 export class AdminModule { }

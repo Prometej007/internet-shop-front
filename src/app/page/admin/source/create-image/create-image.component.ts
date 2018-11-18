@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Image} from '../../../../shared/model/image.model';
+import {ImageModel} from '../../../../shared/model/image.model';
 
 @Component({
   selector: 'app-create-image',
@@ -11,12 +11,12 @@ export class CreateImageComponent implements OnInit {
   constructor() {
   }
 
-  img: Image;
+  img: ImageModel;
   @Input() maintainAspectRatio;
   @Input() aspectRatio;
   @Input() resizeToWidth;
   @Input() imageChangedEvent;
-  @Output() getImage = new EventEmitter<Image>();
+  @Output() getImage = new EventEmitter<ImageModel>();
 
 
   send() {
@@ -26,7 +26,7 @@ export class CreateImageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.img = new Image();
+    this.img = new ImageModel();
   }
 
   loadImageFailed() {

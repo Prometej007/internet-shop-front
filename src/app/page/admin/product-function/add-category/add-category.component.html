@@ -1,0 +1,21 @@
+<div class="admin-right-container">
+  <input type="file" id="image-c-m-id" [ngClass]="{'disable':category.image}" (change)="changeFileImage($event)">
+  <label for="image-c-m-id" *ngIf="category.image">
+    <img src="{{category.image.content}}" *ngIf="category.image" >
+  </label>
+  <app-create-image [imageChangedEvent]="fileImageField" (getImage)="setImage($event)"></app-create-image>
+  <div>
+    <input [(ngModel)]="category.name.valueEn" placeholder="name.valueEn">
+    <input [(ngModel)]="category.name.valueRu" placeholder="name.valueRu">
+    <input [(ngModel)]="category.name.valueUa" placeholder="name.valueUa">
+  </div>
+  <div>
+    <input [(ngModel)]="category.description.valueEn" placeholder="description.valueEn">
+    <input [(ngModel)]="category.description.valueRu" placeholder="description.valueRu">
+    <input [(ngModel)]="category.description.valueUa" placeholder="description.valueUa">
+  </div>
+  <div>
+    <input [(ngModel)]="category.order" type="number" placeholder="order">
+  </div>
+  <button (click)="save()">save</button>
+</div>
