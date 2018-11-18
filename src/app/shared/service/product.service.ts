@@ -13,7 +13,7 @@ import {ProductModel} from '../model/product.model';
  * Time: 17:10
  */
 @Injectable()
-export class ProductService{
+export class ProductService {
 
   private controller = '/product';
 
@@ -21,9 +21,15 @@ export class ProductService{
   }
 
   create(callBack: ProductModel): Observable<any> {
-    return this._httpClient.post(this.controller+"/save-product", JSON.stringify(callBack)).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.post(this.controller + '/save-product', JSON.stringify(callBack)).pipe(catchError(err => Observable.throw(err)));
   }
-  findAll(limit:number,page:number): Observable<any> {
-    return this._httpClient.get(this.controller,{params: new HttpParams().set('limit', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
+
+  findAll(limit: number, page: number): Observable<any> {
+    return this._httpClient.get(this.controller, {params: new HttpParams().set('limit', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
   }
+
+  changeAvailable(product: ProductModel) {
+    return this._httpClient.post(this.controller + '/update-availability', null, {params: new HttpParams().set('productId', product.id + '').set('available', product.available + '')}).pipe(catchError(err => Observable.throw(err)));
+  }
+
 }

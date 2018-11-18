@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MaterialService} from '../../../../shared/service/material.service';
 import {ProductService} from '../../../../shared/service/product.service';
+import {ProductModel} from '../../../../shared/model/product.model';
 
 @Component({
   selector: 'app-container-product',
@@ -12,17 +13,33 @@ export class ContainerProductComponent implements OnInit {
   page: number = 0;
   limit: number = 10;
 
-  constructor(private _materialService: ProductService) {
+  constructor(private _productService: ProductService) {
     this.loadPage(0);
   }
 
   loadPage(page: number) {
-    this.page=page;
-    this._materialService.findAll(this.limit, this.page).subscribe(next => {
+    this.page = page;
+    this._productService.findAll(this.limit, this.page).subscribe(next => {
       this.pageReq = next;
     }, error => {
       console.error(error);
     });
+  }
+
+  changeNews(one: ProductModel) {
+//todo
+  }
+
+  changeAvailable(one: ProductModel) {
+    this._productService.changeAvailable(one).subscribe(next => {
+      console.log('change');
+    }, error => {
+      console.error(error);
+    });
+  }
+
+  changeCanBuy(one: ProductModel) {
+//todo
   }
 
   ngOnInit() {

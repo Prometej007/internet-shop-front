@@ -7,6 +7,23 @@
     <hr>
     <p style="color: red">
       {{one.name.valueEn}}
+
+
+      <br>
+      <label >
+        canBuy
+        <input type="checkbox" [(ngModel)]="one.canBuy" (change)="changeCanBuy(one)">
+      </label>
+      <br>
+      <label >
+        available
+        <input type="checkbox" [(ngModel)]="one.available" (change)="changeAvailable(one)">
+      </label>
+      <br>
+      <label >
+        news
+        <input type="checkbox" [(ngModel)]="one.news" (change)="changeNews(one)">
+      </label>
     </p>
   </div>
   <button *ngIf="!pageReq.last" (click)="loadPage(page+1)">next</button>
