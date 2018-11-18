@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+.admin-header {
+  width: 100vw;
+  display: flex;
+  position: absolute;
+  height: 10vh;
+  background: red;
+  left: 0;
+  top: 0;
+  justify-items: center;
+  justify-content: center;
+}
+
+.admin-header a {
+  display: block;
+  cursor: pointer;
+  width: 25vw;
+  margin: auto;
+  text-align: center;
+}
+
+.admin-left-side-bar {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  height: 90vh;
+  width: 15vw;
+  background: blue;
+}
+.admin-left-side-bar *{
+  color: white!important;
+}
+.admin-right-container {
+  position: absolute;
+  left: 15vw;
+  top: 10vh;
+  background: aqua;
+  height: 88vh;
+  width: 83vw;
+  padding: 1vh 1vw;
+}

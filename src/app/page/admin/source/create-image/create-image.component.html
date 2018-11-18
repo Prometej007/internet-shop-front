@@ -1,0 +1,23 @@
+<div class="admin-right-container" *ngIf="imageChangedEvent">
+  <div class="container-image-cropper">
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 4"
+      [resizeToWidth]="700"
+      format="png"
+      (imageCropped)="imageCropped( $event)"
+      (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+  </div>
+  <div class="container-image-cropper-right">
+    <div>
+      <input type="text" id="id-alt" [(ngModel)]="img.alt"><label for="id-alt">alt</label>
+    </div>
+    <div>
+      <input type="text" id="id-title" [(ngModel)]="img.title" ><label for="id-title">title</label>
+    </div>
+    <button (click)="send()">ok</button>
+  </div>
+</div>

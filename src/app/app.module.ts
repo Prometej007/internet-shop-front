@@ -1,16 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {PageComponent} from './page/page.component';
+import {RouterModule, Routes} from '@angular/router';
+import {AdminComponent} from './page/admin/admin.component';
+import {adminRoutes} from './page/admin/admin.routes';
+import {AdminModule} from './page/admin/admin.module';
+import {ImageCropperModule} from 'ngx-image-cropper';
+
+export const routes: Routes = [
+  ...adminRoutes
+];
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    PageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes, {useHash: true}),
+    AdminModule,
+    ImageCropperModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [PageComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,0 +1,19 @@
+.admin-right-container{
+z-index: 100000000000000000000;
+  position: fixed;
+}
+.container-image-cropper{
+  width: 50%;
+  height: 100%;
+  display: block;
+  float: left;
+}
+.container-image-cropper-right{
+  width: 50%;
+  height: 100%;
+  display: block;
+  float: left;
+}
+.container-image-cropper-right div{
+  margin-left: 10vw;
+}
