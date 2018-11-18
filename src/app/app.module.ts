@@ -12,9 +12,12 @@ import {AuthInterceptor} from './shared/http.inteceptors/auth-inteceptor';
 import {MaterialService} from './shared/service/material.service';
 import {CategoryService} from './shared/service/category.service';
 import {ProductService} from './shared/service/product.service';
+import {ClientModule} from './page/client/client.module';
+import {clientRoutes} from './page/client/client.routes';
 
 export const routes: Routes = [
-  ...adminRoutes
+  ...adminRoutes,
+  ...clientRoutes
 ];
 
 
@@ -26,6 +29,7 @@ export const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes, {useHash: true}),
     AdminModule,
+    ClientModule,
     ImageCropperModule,
     HttpClientModule,
 
