@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CategoryModel} from '../../../../shared/model/category.model';
 import {DictionaryModel} from '../../../../shared/model/dictionary.model';
 import {ImageModel} from '../../../../shared/model/image.model';
+import {CategoryService} from '../../../../shared/service/category.service';
 
 @Component({
   selector: 'app-add-category',
@@ -13,7 +14,7 @@ export class AddCategoryComponent implements OnInit {
   category: CategoryModel;
   fileImageField;
 
-  constructor() {
+  constructor(private _categoryService: CategoryService) {
   }
 
   ngOnInit() {
@@ -21,12 +22,18 @@ export class AddCategoryComponent implements OnInit {
     this.category.description = new DictionaryModel();
     this.category.name = new DictionaryModel();
   }
-  setImage(image:ImageModel){
-    this.category.image=image;
+
+  setImage(image: ImageModel) {
+    this.category.image = image;
   }
+
   save() {
-    console.log(this.category);//todo save
-    this.ngOnInit();
+    this._categoryService.create(this.category).subscribe(next => {
+      console.log(this.category);
+      this.ngOnInit();
+    }, error => {
+      console.error(error);
+    });
   }
 
   changeFileImage(event) {

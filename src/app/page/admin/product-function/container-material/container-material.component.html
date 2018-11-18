@@ -1,0 +1,12 @@
+<div class="admin-right-container" *ngIf="pageReq">
+
+  <a [routerLink]="'../add-materials'">add-materials</a>
+
+
+  <div *ngFor="let one of pageReq.content">
+    <hr>
+    {{one.name.valueEn}}
+  </div>
+<button *ngIf="!pageReq.last" (click)="loadPage(page+1)">next</button>
+<button *ngIf="!pageReq.first" (click)="loadPage(page-1)">prev</button>
+</div>

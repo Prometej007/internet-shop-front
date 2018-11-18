@@ -6,16 +6,26 @@ import {AnalyticsFunctionComponent} from './analytics-function/analytics-functio
 import {AddMaterialComponent} from './product-function/add-material/add-material.component';
 import {AddCategoryComponent} from './product-function/add-category/add-category.component';
 import {AddProductComponent} from './product-function/add-product/add-product.component';
+import {ContainerMaterialComponent} from './product-function/container-material/container-material.component';
+import {ContainerCategoryComponent} from './product-function/container-category/container-category.component';
+import {ContainerProductComponent} from './product-function/container-product/container-product.component';
 
 
 export const adminRoutes: Routes = [
-  {path:"admin",component:AdminComponent,children:[
-      {path:"function-buy",component:BuyFunctionComponent},
-      {path:"function-product",component:ProductFunctionComponent,children:[
-          {path:"add-materials",component:AddMaterialComponent},
-          {path:"add-category",component:AddCategoryComponent},
-          {path:"add-product",component:AddProductComponent}
-        ]},
-      {path:"function-analytics",component:AnalyticsFunctionComponent}
-    ]}
+  {
+    path: 'admin', component: AdminComponent, children: [
+      {path: 'function-buy', component: BuyFunctionComponent},
+      {
+        path: 'function-product', component: ProductFunctionComponent, children: [
+          {path: 'add-materials', component: AddMaterialComponent},
+          {path: 'add-category', component: AddCategoryComponent},
+          {path: 'add-product', component: AddProductComponent},
+          {path: 'materials', component: ContainerMaterialComponent},
+          {path: 'category', component: ContainerCategoryComponent},
+          {path: 'product', component: ContainerProductComponent}
+        ]
+      },
+      {path: 'function-analytics', component: AnalyticsFunctionComponent}
+    ]
+  }
 ];

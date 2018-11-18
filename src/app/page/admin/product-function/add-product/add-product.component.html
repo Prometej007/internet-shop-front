@@ -30,6 +30,12 @@
   </div>
   <hr>
   <div>
+    <p>category</p>
+    <p *ngFor="let st of listCategory" (click)="selectCategory(st)">{{st.name.valueUa}} <span
+      *ngIf="product.category&&product.category.id==st.id">*</span></p>
+  </div>
+  <hr>
+  <div>
     <p>productType</p>
     <p *ngFor="let st of productType" (click)="selectProductType(st)">{{st}} <span
       *ngIf="product.productType&&product.productType==st">*</span></p>
@@ -59,7 +65,7 @@
     <input type="number" [(ngModel)]="product.width" placeholder="width">
     <input type="number" [(ngModel)]="product.length" placeholder="length">
     <input type="number" [(ngModel)]="product.price" placeholder="price">
-    <input type="number" [(ngModel)]="product.models" placeholder="models">
+    <input type="number" [(ngModel)]="product.model" placeholder="models">
     <input type="number" [(ngModel)]="product.maximumLoad" placeholder="maximumLoad">
   </div>
   <button (click)="save()">save</button>

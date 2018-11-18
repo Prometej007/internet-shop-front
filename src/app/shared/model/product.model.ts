@@ -16,7 +16,7 @@ export class ProductModel extends BaseModel {
   softnessTypes: SoftnessType[] = [];
   productType: ProductType;
   materials: MaterialsModel[] = [];
-  models: string;
+  model: string;
   height: number;
   width: number;
   length: number;
