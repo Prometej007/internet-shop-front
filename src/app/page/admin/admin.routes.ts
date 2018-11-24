@@ -9,6 +9,8 @@ import {AddProductComponent} from './product-function/add-product/add-product.co
 import {ContainerMaterialComponent} from './product-function/container-material/container-material.component';
 import {ContainerCategoryComponent} from './product-function/container-category/container-category.component';
 import {ContainerProductComponent} from './product-function/container-product/container-product.component';
+import {ContainerPromoCodeComponent} from './product-function/container-promo-code/container-promo-code.component';
+import {AddPromoCodeComponent} from './product-function/add-promo-code/add-promo-code.component';
 
 
 export const adminRoutes: Routes = [
@@ -20,9 +22,11 @@ export const adminRoutes: Routes = [
           {path: 'add-materials', component: AddMaterialComponent},
           {path: 'add-category', component: AddCategoryComponent},
           {path: 'add-product', component: AddProductComponent},
+          {path: 'add-promo-code', component: AddPromoCodeComponent},
           {path: 'materials', component: ContainerMaterialComponent},
           {path: 'category', component: ContainerCategoryComponent},
-          {path: 'product', component: ContainerProductComponent}
+          {path: 'product', component: ContainerProductComponent},
+          {path: 'promo-code', component: ContainerPromoCodeComponent}
         ]
       },
       {path: 'function-analytics', component: AnalyticsFunctionComponent}

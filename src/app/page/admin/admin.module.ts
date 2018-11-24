@@ -14,6 +14,8 @@ import { AddProductComponent } from './product-function/add-product/add-product.
 import { ContainerMaterialComponent } from './product-function/container-material/container-material.component';
 import { ContainerCategoryComponent } from './product-function/container-category/container-category.component';
 import { ContainerProductComponent } from './product-function/container-product/container-product.component';
+import { AddPromoCodeComponent } from './product-function/add-promo-code/add-promo-code.component';
+import { ContainerPromoCodeComponent } from './product-function/container-promo-code/container-promo-code.component';
 
 @NgModule({
   imports: [
@@ -34,6 +36,8 @@ import { ContainerProductComponent } from './product-function/container-product/
     AddProductComponent,
     ContainerMaterialComponent,
     ContainerCategoryComponent,
-    ContainerProductComponent]
+    ContainerProductComponent,
+    AddPromoCodeComponent,
+    ContainerPromoCodeComponent]
 })
 export class AdminModule { }

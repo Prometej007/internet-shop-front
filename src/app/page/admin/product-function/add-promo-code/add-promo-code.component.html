@@ -1,0 +1,29 @@
+<div class="admin-right-container">
+<div>
+  <h3>code</h3>
+  <input type="text" (change)="isInSystem()" [(ngModel)]="promoCode.code" [ngClass]="{'error':isInSystemV}" placeholder="code">
+</div>
+<div>
+  <h3>dateStart</h3>
+  <input type="datetime-local" [(ngModel)]="promoCode.dateStart">
+</div>
+<div>
+  <h3>dateEnd</h3>
+  <input type="datetime-local" [(ngModel)]="promoCode.dateEnd">
+</div>
+<div>
+  <h3>maxCount</h3>
+  <input type="number" [(ngModel)]="promoCode.maxCount">
+</div>
+<div>
+  <h3>discount</h3>
+  <input type="range" [(ngModel)]="promoCode.discount" min="0" max="1" step="0.01" ><span>{{(promoCode.discount*100).toFixed(2)}}%</span>
+</div>
+<div>
+  <h3>product</h3>
+  <div *ngFor="let one of product" (click)="pushProduct(one)">
+    {{one.name.valueUa}}<span *ngIf="promoCode.product.indexOf(one)!=-1" >*</span>
+  </div>
+</div>
+  <button (click)="create()">create</button>
+</div>
