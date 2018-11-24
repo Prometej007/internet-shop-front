@@ -22,6 +22,18 @@ export class BinOneComponent implements OnInit {
     });
   }
 
+  setNewStatus(status, comment: HTMLTextAreaElement) {
+    this._binService.createNewStatus(this.bin.id, status, comment.value).subscribe(next => {
+      this._binService.findOne(this.bin.id).subscribe(next => {
+        this.bin = next;
+      }, error => {
+        console.error(error);
+      });
+    }, error => {
+      console.error(error);
+    });
+  }
+
   ngOnInit() {
   }
 

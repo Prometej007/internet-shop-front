@@ -35,6 +35,9 @@ export class BinService {
   findOne(id: number): Observable<any> {
     return this._httpClient.get(this.controller + '/' + id).pipe(catchError(err => throwError(err)));
   }
+  createNewStatus(idBin: number,binStatus:string,comment:string): Observable<any> {
+    return this._httpClient.post(this.controller + '/add-new-status',null,{params: new HttpParams().set('comment', comment + '').set('id', idBin + '').set('type', binStatus + '')}).pipe(catchError(err => throwError(err)));
+  }
 
   private parseFormDate(formDate: FormData, name: string[]): string {
     let s = '?';

@@ -1,6 +1,51 @@
 <div class="admin-right-container">
   <div routerLink="../bin-container">back</div>
-<span>
+  <div *ngIf="bin.statuses[bin.statuses.length-1].type=='NEW_ORDER'">
+    <textarea #block1>
+
+    </textarea>
+    <button (click)="setNewStatus('EQUIPMENT',block1)">змінити на статус EQUIPMENT</button>
+    <hr>
+  </div>
+  <div *ngIf="bin.statuses[bin.statuses.length-1].type=='EQUIPMENT'">
+    <textarea #block2>
+
+    </textarea>
+    <button (click)="setNewStatus('TRANSFER_TO_CARRIER',block2)">змінити на статус TRANSFER_TO_CARRIER</button>
+    <hr>
+  </div>
+  <div *ngIf="bin.statuses[bin.statuses.length-1].type=='TRANSFER_TO_CARRIER'">
+    <textarea #block3>
+
+    </textarea>
+    <button (click)="setNewStatus('TRANSFERRED_IN_DELIVERY_SERVICE',block3)">змінити на статус TRANSFERRED_IN_DELIVERY_SERVICE</button>
+    <hr>
+  </div>
+  <div *ngIf="bin.statuses[bin.statuses.length-1].type=='TRANSFERRED_IN_DELIVERY_SERVICE'">
+    <textarea #block4>
+
+    </textarea>
+    <button (click)="setNewStatus('ORDER_WAITING_CUSTOMER',block4)">змінити на статус ORDER_WAITING_CUSTOMER</button>
+    <hr>
+  </div>
+  <div *ngIf="bin.statuses[bin.statuses.length-1].type=='ORDER_WAITING_CUSTOMER'">
+    <textarea #block5>
+
+    </textarea>
+    <button (click)="setNewStatus('COMPLETE',block5)">змінити на статус COMPLETE</button>
+    <hr>
+  </div>
+  <div *ngIf="bin.statuses[bin.statuses.length-1].type=='COMPLETE'">
+    COMPLETE
+  </div>
+  <div *ngIf="bin.statuses[bin.statuses.length-1].type!='COMPLETE'&&bin.statuses[bin.statuses.length-1].type!='CANCEL'">
+    <textarea #block6>
+
+    </textarea>
+    <button (click)="setNewStatus('CANCEL',block6)">змінити на статус CANCEL</button>
+    <hr>
+  </div>
+  <span>
   {{bin|json}}
 </span>
 </div>
