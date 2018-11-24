@@ -24,6 +24,7 @@ export class BinOrderComponent implements OnInit {
   }
 
   buy() {
+    this.bin.city=this.bin.user.city;
     this._binService.buy(this.bin).subscribe(next => {
       alert('купівля пройшла успішно');
       this._binRxService.dropBin();
