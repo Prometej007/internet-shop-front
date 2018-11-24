@@ -17,12 +17,12 @@ export class BinContainerComponent implements OnInit, AfterViewInit {
   binPage: any = {};
 
   constructor(private _binService: BinService) {
-
+    this.openPage(0);
   }
 
   openPage(page: number) {
     this.page = page;
-    this._binService.filter(new FormData(this.formVC.nativeElement), this.limit, this.page).subscribe(next => {
+    this._binService.filter(this.formVC==null?new FormData():new FormData(this.formVC.nativeElement), this.limit, this.page).subscribe(next => {
       this.bins = next.content;
       this.binPage = next;
     }, error => {
@@ -34,7 +34,6 @@ export class BinContainerComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.openPage(0);
   }
 
 }

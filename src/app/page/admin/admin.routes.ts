@@ -12,14 +12,18 @@ import {ContainerProductComponent} from './product-function/container-product/co
 import {ContainerPromoCodeComponent} from './product-function/container-promo-code/container-promo-code.component';
 import {AddPromoCodeComponent} from './product-function/add-promo-code/add-promo-code.component';
 import {BinContainerComponent} from './buy-function/bin-container/bin-container.component';
+import {BinOneComponent} from './buy-function/bin-one/bin-one.component';
 
 
 export const adminRoutes: Routes = [
   {
     path: 'admin', component: AdminComponent, children: [
-      {path: 'function-buy', component: BuyFunctionComponent,children:[
+      {
+        path: 'function-buy', component: BuyFunctionComponent, children: [
           {path: 'bin-container', component: BinContainerComponent},
-        ]},
+          {path: ':id', component: BinOneComponent},
+        ]
+      },
       {
         path: 'function-product', component: ProductFunctionComponent, children: [
           {path: 'add-materials', component: AddMaterialComponent},

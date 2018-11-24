@@ -13,31 +13,39 @@ import {BinModel} from '../model/bin.model';
  * Time: 17:10
  */
 @Injectable()
-export class BinService{
+export class BinService {
 
   private controller = '/bin';
 
   constructor(private _httpClient: HttpClient) {
   }
 
-  price(bin:BinModel): Observable<any> {
-    return this._httpClient.post(this.controller+"/price",JSON.stringify(bin)).pipe(catchError(err => throwError(err)));
+  price(bin: BinModel): Observable<any> {
+    return this._httpClient.post(this.controller + '/price', JSON.stringify(bin)).pipe(catchError(err => throwError(err)));
   }
-  buy(bin:BinModel): Observable<any> {
-    return this._httpClient.post(this.controller+"/buy",JSON.stringify(bin)).pipe(catchError(err => throwError(err)));
+
+  buy(bin: BinModel): Observable<any> {
+    return this._httpClient.post(this.controller + '/buy', JSON.stringify(bin)).pipe(catchError(err => throwError(err)));
   }
-  filter(formDate:FormData,size:number,page:number): Observable<any> {
-    return this._httpClient.get(this.controller+"/filter"+this.parseFormDate(formDate,["type"])+"size="+size+"page="+page).pipe(catchError(err => throwError(err)));
+
+  filter(formDate: FormData, size: number, page: number): Observable<any> {
+    return this._httpClient.get(this.controller + '/filter' + this.parseFormDate(formDate, ['type']) + 'size=' + size + 'page=' + page).pipe(catchError(err => throwError(err)));
   }
-  private parseFormDate(formDate: FormData, name:string[]):string {
-    let s="?";
+
+  findOne(id: number): Observable<any> {
+    return this._httpClient.get(this.controller + '/' + id).pipe(catchError(err => throwError(err)));
+  }
+
+  private parseFormDate(formDate: FormData, name: string[]): string {
+    let s = '?';
     name.forEach(
       value =>
-        s+=this.formDate(formDate,value)
+        s += this.formDate(formDate, value)
     );
     return s;
   }
-  private formDate(formDate: FormData, name: string):string {
+
+  private formDate(formDate: FormData, name: string): string {
     let s = '';
     formDate.getAll(name).forEach(value => {
       s += name + '=' + value + '&';

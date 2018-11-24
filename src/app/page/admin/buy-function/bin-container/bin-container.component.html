@@ -11,7 +11,7 @@
     <option value="COMPLETE">COMPLETE</option>
   </select>
 </form>
-<div *ngFor="let one of bins">
+<div *ngFor="let one of bins" routerLink="../{{one.id}}">
   <span style="color: red">{{one|json}}</span>
   <hr>
 </div>
