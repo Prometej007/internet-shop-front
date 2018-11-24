@@ -3,7 +3,7 @@ import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from 
 import {Router} from '@angular/router';
 import {isNull, isNullOrUndefined} from 'util';
 import {isPlatformBrowser} from '@angular/common';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {url} from '../config/url';
 import {catchError} from 'rxjs/operators';
 
@@ -76,10 +76,10 @@ export class AuthInterceptor implements HttpInterceptor {
       }
       if (err.status === 403) {
         // this._router.navigateByUrl("/error/403");
-        return Observable.throw(err);
+        return throwError(err);
       } else {
         // AppComponent._loadRxListner.endLoading();
-        return Observable.throw(err);
+        return throwError(err);
       }
     }));
   }

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {MaterialsModel} from '../model/materials.model';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {CategoryModel} from '../model/category.model';
 import {BinModel} from '../model/bin.model';
@@ -21,9 +21,9 @@ export class BinService{
   }
 
   price(bin:BinModel): Observable<any> {
-    return this._httpClient.post(this.controller+"/price",JSON.stringify(bin)).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.post(this.controller+"/price",JSON.stringify(bin)).pipe(catchError(err => throwError(err)));
   }
   buy(bin:BinModel): Observable<any> {
-    return this._httpClient.post(this.controller+"/buy",JSON.stringify(bin)).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.post(this.controller+"/buy",JSON.stringify(bin)).pipe(catchError(err => throwError(err)));
   }
 }

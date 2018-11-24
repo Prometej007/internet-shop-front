@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {MaterialsModel} from '../model/materials.model';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {CategoryModel} from '../model/category.model';
 import {ProductModel} from '../model/product.model';
@@ -21,18 +21,18 @@ export class ProductService {
   }
 
   create(callBack: ProductModel): Observable<any> {
-    return this._httpClient.post(this.controller + '/save-product', JSON.stringify(callBack)).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.post(this.controller + '/save-product', JSON.stringify(callBack)).pipe(catchError(err => throwError(err)));
   }
   findOne(productId: number): Observable<any> {
-    return this._httpClient.get(this.controller + '/find-product?productId='+productId).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.get(this.controller + '/find-product?productId='+productId).pipe(catchError(err => throwError(err)));
   }
 
   findAll(limit: number, page: number): Observable<any> {
-    return this._httpClient.get(this.controller, {params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.get(this.controller, {params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => throwError(err)));
   }
 
   changeAvailable(product: ProductModel) {
-    return this._httpClient.post(this.controller + '/update-availability', null, {params: new HttpParams().set('productId', product.id + '').set('available', product.available + '')}).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.post(this.controller + '/update-availability', null, {params: new HttpParams().set('productId', product.id + '').set('available', product.available + '')}).pipe(catchError(err => throwError(err)));
   }
 
   filter(filter: HTMLFormElement, limit: number, page: number): Observable<any> {
@@ -41,7 +41,7 @@ export class ProductService {
       this.parseFormDate(form,
         ["category","materials","softness","productType","winterSummerOption","minPrice","maxPrice","minHeight","maxHeight","minWidth","maxWidth","minLength","maxLength","minMaximumLoad","maxMaximumLoad"]
       )
-      , null,{params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
+      , null,{params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => throwError(err)));
   }
 
 

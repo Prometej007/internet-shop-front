@@ -96,8 +96,18 @@ export class BinRxService {
     if (this.bin.itemBins.length > 0) {
       localStorage.setItem(BIN, JSON.stringify(this.bin));
       this._bin.next(this.bin);
-    } else
-      localStorage.removeItem(BIN);
+    } else{
+    this.dropBin();
+    }
+  }
+  dropBin(){
+    this.bin=new BinModel();
+    localStorage.removeItem(BIN);
+    this.prices=0;
+    this.bin.promoCode = new PromocodeModel();
+    this.bin.promoCode.code = '';
+    this.bin.user=new UserModel();
+    this._bin.next(this.bin);
   }
 
   getFromCashes() {
