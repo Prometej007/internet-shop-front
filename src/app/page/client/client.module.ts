@@ -10,6 +10,7 @@ import {RouterModule} from '@angular/router';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import { ProductContainerOneComponent } from './product-container/product-container-one/product-container-one.component';
 import { ProductContainerFilterComponent } from './product-container/product-container-filter/product-container-filter.component';
+import { BinContainerComponent } from './bin-container/bin-container.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { ProductContainerFilterComponent } from './product-container/product-con
     ProductContainerComponent,
     ProductOneComponent,
     ProductContainerOneComponent,
-    ProductContainerFilterComponent
+    ProductContainerFilterComponent,
+    BinContainerComponent
   ]
 })
 export class ClientModule { }

@@ -1,3 +1,11 @@
-<p>
+<div>
   product-one works! <b>{{product.id}}</b>
-</p>
+
+  <div *ngIf="!isBin()" (click)="addInBin()">
+  add in bin
+  </div>
+
+  <div *ngIf="isBin()">
+    in bin
+  </div>
+  </div>

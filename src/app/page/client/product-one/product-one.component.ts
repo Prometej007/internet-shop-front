@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../../shared/service/product.service';
 import {ProductModel} from '../../../shared/model/product.model';
+import {BinRxService} from '../../../shared/rx/bin.rx.service';
 
 @Component({
   selector: 'app-product-one',
@@ -11,9 +12,9 @@ import {ProductModel} from '../../../shared/model/product.model';
 })
 export class ProductOneComponent implements OnInit {
 
-   product: ProductModel;
+  product: ProductModel=new ProductModel();
 
-  constructor(private _activatedRoute: ActivatedRoute, private _productService: ProductService) {
+  constructor(private _activatedRoute: ActivatedRoute, private _productService: ProductService, private _binRxService: BinRxService) {
     _activatedRoute.params.subscribe(value => {
       _productService.findOne(value['id']).subscribe(next => {
         this.product = next;
@@ -21,6 +22,13 @@ export class ProductOneComponent implements OnInit {
         console.error(error);
       });
     });
+  }
+
+  addInBin() {
+    this._binRxService.addInBin(this.product);
+  }
+  isBin() {
+    return this._binRxService.isInBin(this.product);
   }
 
   ngOnInit() {

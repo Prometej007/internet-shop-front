@@ -1,0 +1,12 @@
+<div>
+  <div *ngFor="let one of bin.itemBins" >
+    {{one.count}}-
+    {{one.product.id}}-
+    {{one.product.name.valueUa}}-
+    {{one.product.price}}
+    <br>
+    <input (change)="changeCountInBin(one)" [(ngModel)]="one.count">
+    <button (click)="_binRxService.rmInBin(one.product)">x</button>
+    <hr>
+  </div>
+</div>

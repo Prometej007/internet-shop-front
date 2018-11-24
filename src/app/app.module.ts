@@ -14,6 +14,7 @@ import {CategoryService} from './shared/service/category.service';
 import {ProductService} from './shared/service/product.service';
 import {ClientModule} from './page/client/client.module';
 import {clientRoutes} from './page/client/client.routes';
+import {BinRxService} from './shared/rx/bin.rx.service';
 
 export const routes: Routes = [
   ...adminRoutes,
@@ -41,7 +42,7 @@ export const routes: Routes = [
   },
     MaterialService,
     CategoryService,
-    ProductService
+    ProductService,BinRxService
   ],
   bootstrap: [PageComponent]
 })
