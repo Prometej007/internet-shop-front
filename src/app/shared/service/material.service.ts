@@ -22,9 +22,9 @@ export class MaterialService{
     return this._httpClient.post(this.controller, JSON.stringify(callBack)).pipe(catchError(err => Observable.throw(err)));
   }
   findAll(limit:number,page:number): Observable<any> {
-    return this._httpClient.get(this.controller,{params: new HttpParams().set('limit', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.get(this.controller,{params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
   }
   findAllActive(limit:number,page:number): Observable<any> {
-    return this._httpClient.get(this.controller+"/active",{params: new HttpParams().set('limit', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.get(this.controller+"/active",{params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
   }
 }

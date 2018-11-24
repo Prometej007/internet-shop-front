@@ -5,6 +5,8 @@
 <hr>
 <hr>
 <app-product-container-one *ngFor="let one of products" [product]="one"></app-product-container-one>
+<button (click)="prevPage()" *ngIf="!productsPage.first">prev</button>
+<button (click)="nextPage()" *ngIf="!productsPage.last">next</button>
 <p>
   product-container works!
 </p>

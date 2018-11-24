@@ -13,11 +13,32 @@ export class ProductContainerComponent implements OnInit {
   productsPage: any = {};
   products: ProductModel[] = [];
   page: number = 0;
-  limit: number = 20;
+  limit: number = 1;
+
   form: HTMLFormElement;
 
   constructor(private _productService: ProductService) {
-    this._productService.filter(null,this.limit,this.page).subscribe(next => {
+    this._productService.filter(null, this.limit, this.page).subscribe(next => {
+      this.products = next.content;
+      this.productsPage = next;
+    }, error => {
+      console.error(error);
+    });
+  }
+
+  nextPage() {
+    this.page += 1;
+    this._productService.filter(this.form, this.limit, this.page).subscribe(next => {
+      this.products = next.content;
+      this.productsPage = next;
+    }, error => {
+      console.error(error);
+    });
+  }
+
+  prevPage() {
+    this.page -= 1;
+    this._productService.filter(this.form, this.limit, this.page).subscribe(next => {
       this.products = next.content;
       this.productsPage = next;
     }, error => {

@@ -28,7 +28,7 @@ export class ProductService {
   }
 
   findAll(limit: number, page: number): Observable<any> {
-    return this._httpClient.get(this.controller, {params: new HttpParams().set('limit', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
+    return this._httpClient.get(this.controller, {params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
   }
 
   changeAvailable(product: ProductModel) {
@@ -40,8 +40,8 @@ export class ProductService {
     return this._httpClient.post(this.controller + '/find-products-filter' +
       this.parseFormDate(form,
         ["category","materials","softness","productType","winterSummerOption","minPrice","maxPrice","minHeight","maxHeight","minWidth","maxWidth","minLength","maxLength","minMaximumLoad","maxMaximumLoad"]
-      )+"&limit="+limit+"page="+page
-      , null).pipe(catchError(err => Observable.throw(err)));
+      )
+      , null,{params: new HttpParams().set('size', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
   }
 
 
