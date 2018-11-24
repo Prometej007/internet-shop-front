@@ -11,12 +11,15 @@ import {ContainerCategoryComponent} from './product-function/container-category/
 import {ContainerProductComponent} from './product-function/container-product/container-product.component';
 import {ContainerPromoCodeComponent} from './product-function/container-promo-code/container-promo-code.component';
 import {AddPromoCodeComponent} from './product-function/add-promo-code/add-promo-code.component';
+import {BinContainerComponent} from './buy-function/bin-container/bin-container.component';
 
 
 export const adminRoutes: Routes = [
   {
     path: 'admin', component: AdminComponent, children: [
-      {path: 'function-buy', component: BuyFunctionComponent},
+      {path: 'function-buy', component: BuyFunctionComponent,children:[
+          {path: 'bin-container', component: BinContainerComponent},
+        ]},
       {
         path: 'function-product', component: ProductFunctionComponent, children: [
           {path: 'add-materials', component: AddMaterialComponent},

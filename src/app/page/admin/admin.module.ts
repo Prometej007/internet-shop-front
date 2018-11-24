@@ -16,6 +16,7 @@ import { ContainerCategoryComponent } from './product-function/container-categor
 import { ContainerProductComponent } from './product-function/container-product/container-product.component';
 import { AddPromoCodeComponent } from './product-function/add-promo-code/add-promo-code.component';
 import { ContainerPromoCodeComponent } from './product-function/container-promo-code/container-promo-code.component';
+import { BinContainerComponent } from './buy-function/bin-container/bin-container.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { ContainerPromoCodeComponent } from './product-function/container-promo-
     ContainerCategoryComponent,
     ContainerProductComponent,
     AddPromoCodeComponent,
-    ContainerPromoCodeComponent]
+    ContainerPromoCodeComponent,
+    BinContainerComponent]
 })
 export class AdminModule { }

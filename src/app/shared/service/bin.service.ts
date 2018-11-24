@@ -26,4 +26,22 @@ export class BinService{
   buy(bin:BinModel): Observable<any> {
     return this._httpClient.post(this.controller+"/buy",JSON.stringify(bin)).pipe(catchError(err => throwError(err)));
   }
+  filter(formDate:FormData,size:number,page:number): Observable<any> {
+    return this._httpClient.get(this.controller+"/filter"+this.parseFormDate(formDate,["type"])+"size="+size+"page="+page).pipe(catchError(err => throwError(err)));
+  }
+  private parseFormDate(formDate: FormData, name:string[]):string {
+    let s="?";
+    name.forEach(
+      value =>
+        s+=this.formDate(formDate,value)
+    );
+    return s;
+  }
+  private formDate(formDate: FormData, name: string):string {
+    let s = '';
+    formDate.getAll(name).forEach(value => {
+      s += name + '=' + value + '&';
+    });
+    return s;
+  }
 }
