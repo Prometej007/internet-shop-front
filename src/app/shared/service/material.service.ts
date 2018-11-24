@@ -24,4 +24,7 @@ export class MaterialService{
   findAll(limit:number,page:number): Observable<any> {
     return this._httpClient.get(this.controller,{params: new HttpParams().set('limit', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
   }
+  findAllActive(limit:number,page:number): Observable<any> {
+    return this._httpClient.get(this.controller+"/active",{params: new HttpParams().set('limit', limit + '').set('page', page + '')}).pipe(catchError(err => Observable.throw(err)));
+  }
 }

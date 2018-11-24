@@ -3,14 +3,29 @@ import { CommonModule } from '@angular/common';
 import { ClientComponent } from './client.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProductContainerComponent } from './product-container/product-container.component';
+import { ProductOneComponent } from './product-one/product-one.component';
+import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {ImageCropperModule} from 'ngx-image-cropper';
+import { ProductContainerOneComponent } from './product-container/product-container-one/product-container-one.component';
+import { ProductContainerFilterComponent } from './product-container/product-container-filter/product-container-filter.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    ImageCropperModule,
   ],
   declarations: [
     ClientComponent,
     AboutUsComponent,
-    ContactComponent]
+    ContactComponent,
+    ProductContainerComponent,
+    ProductOneComponent,
+    ProductContainerOneComponent,
+    ProductContainerFilterComponent
+  ]
 })
 export class ClientModule { }
