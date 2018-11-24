@@ -1,4 +1,11 @@
 <div>
+  <div>
+    <span *ngIf="bin.price">{{bin.price}}</span>
+    -
+    <span >{{_binRxService.getOriginalPrice()}}</span>
+
+
+  </div>
   <div *ngFor="let one of bin.itemBins" >
     {{one.count}}-
     {{one.product.id}}-
@@ -9,4 +16,5 @@
     <button (click)="_binRxService.rmInBin(one.product)">x</button>
     <hr>
   </div>
+  <input type="text" (change)="changePromoCode()"  [(ngModel)]="bin.promoCode.code">
 </div>
