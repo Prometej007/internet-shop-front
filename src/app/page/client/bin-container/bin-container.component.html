@@ -3,11 +3,11 @@
     -
     <span *ngIf="bin.price&&_binRxService.getOriginalPrice()!=bin.price">ціна зі знижкою {{bin.price}} <br></span>
     -
-    <span >ціна без знижки {{_binRxService.getOriginalPrice()}}<br></span>
+    <span>ціна без знижки {{_binRxService.getOriginalPrice()}}<br></span>
 
 
   </div>
-  <div *ngFor="let one of bin.itemBins" >
+  <div *ngFor="let one of bin.itemBins">
     {{one.count}}-
     {{one.product.id}}-
     {{one.product.name.valueUa}}-
@@ -17,5 +17,7 @@
     <button (click)="_binRxService.rmInBin(one.product)">x</button>
     <hr>
   </div>
-  <input type="text" (change)="changePromoCode()"  [(ngModel)]="bin.promoCode.code">
+  <label>
+    введіть промокож на знижку товарів
+    <input type="text" (change)="changePromoCode()" [(ngModel)]="bin.promoCode.code"></label>
 </div>

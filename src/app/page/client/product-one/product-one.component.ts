@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../../shared/service/product.service';
 import {ProductModel} from '../../../shared/model/product.model';
 import {BinRxService} from '../../../shared/rx/bin.rx.service';
+import {DictionaryModel} from '../../../shared/model/dictionary.model';
 
 @Component({
   selector: 'app-product-one',
@@ -15,6 +16,8 @@ export class ProductOneComponent implements OnInit {
   product: ProductModel=new ProductModel();
 
   constructor(private _activatedRoute: ActivatedRoute, private _productService: ProductService, private _binRxService: BinRxService) {
+   this.product.name=new DictionaryModel();
+   
     _activatedRoute.params.subscribe(value => {
       _productService.findOne(value['id']).subscribe(next => {
         this.product = next;
