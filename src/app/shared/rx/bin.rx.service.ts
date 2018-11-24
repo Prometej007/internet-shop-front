@@ -5,6 +5,7 @@ import {ItemBinModel} from '../model/item-bin.model';
 import {Injectable} from '@angular/core';
 import {isNullOrUndefined} from 'util';
 import {PromocodeModel} from '../model/promocode.model';
+import {UserModel} from '../model/user.model';
 
 export const BIN = 'bin';
 
@@ -31,6 +32,7 @@ export class BinRxService {
   constructor() {
     this.bin.promoCode = new PromocodeModel();
     this.bin.promoCode.code = '';
+    this.bin.user=new UserModel();
     this.getFromCashes();
   }
 

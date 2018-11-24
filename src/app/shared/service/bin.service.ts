@@ -21,7 +21,9 @@ export class BinService{
   }
 
   price(bin:BinModel): Observable<any> {
-    console.log(bin)
     return this._httpClient.post(this.controller+"/price",JSON.stringify(bin)).pipe(catchError(err => Observable.throw(err)));
+  }
+  buy(bin:BinModel): Observable<any> {
+    return this._httpClient.post(this.controller+"/buy",JSON.stringify(bin)).pipe(catchError(err => Observable.throw(err)));
   }
 }

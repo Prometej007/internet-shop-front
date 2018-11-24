@@ -5,6 +5,7 @@ import {AboutUsComponent} from './about-us/about-us.component';
 import {ProductContainerComponent} from './product-container/product-container.component';
 import {ProductOneComponent} from './product-one/product-one.component';
 import {BinContainerComponent} from './bin-container/bin-container.component';
+import {BinOrderComponent} from './bin-order/bin-order.component';
 
 
 export const clientRoutes: Routes = [
@@ -15,6 +16,7 @@ export const clientRoutes: Routes = [
       {path: 'product/:id', component: ProductOneComponent},
       {path: 'product', component: ProductContainerComponent},
       {path: 'bin', component: BinContainerComponent},
+      {path: 'order', component: BinOrderComponent},
     ]
   }
 ];
