@@ -1,8 +1,9 @@
 <div>
   <div>
-    <span *ngIf="bin.price">{{bin.price}}</span>
     -
-    <span >{{_binRxService.getOriginalPrice()}}</span>
+    <span *ngIf="bin.price&&_binRxService.getOriginalPrice()!=bin.price">ціна зі знижкою {{bin.price}} <br></span>
+    -
+    <span >ціна без знижки {{_binRxService.getOriginalPrice()}}<br></span>
 
 
   </div>

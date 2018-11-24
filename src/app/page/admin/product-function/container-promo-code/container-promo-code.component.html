@@ -9,10 +9,13 @@
     <p style="color: red">
       {{one.code}}
       <br>
+      {{one.discount}}
+      <br>
     </p>
     <h3>product</h3>
     <p *ngFor="let one of one.product">
       {{one.name.valueUa}}
+
     </p>
   </div>
   <button *ngIf="!pageReq.last" (click)="loadPage(page+1)">next</button>

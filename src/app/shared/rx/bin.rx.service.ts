@@ -19,6 +19,11 @@ export class BinRxService {
     return this.prices;
   }
 
+  binSetPrice(price: number) {
+    this.bin.price = price;
+    this.cashes();
+  }
+
   getBin() {
     return this.bin;
   }

@@ -10,14 +10,14 @@ import {PromocodeModel} from '../../../shared/model/promocode.model';
   selector: 'app-bin-container',
   templateUrl: './bin-container.component.html',
   styleUrls: ['./bin-container.component.css'],
-  providers:[BinService]
+  providers: [BinService]
 })
 export class BinContainerComponent implements OnInit {
   bin: BinModel = new BinModel();
 
-  constructor(public _binRxService: BinRxService,private _binService:BinService) {
-   this.bin.promoCode=new PromocodeModel();
-   this.bin.promoCode.code="";
+  constructor(public _binRxService: BinRxService, private _binService: BinService) {
+    this.bin.promoCode = new PromocodeModel();
+    this.bin.promoCode.code = '';
     this.bin = _binRxService.getBin();
     _binRxService.bin$.subscribe(
       next => {
@@ -26,15 +26,15 @@ export class BinContainerComponent implements OnInit {
     );
   }
 
-  private changePromoCode(){
-    this.bin.promoCode=new PromocodeModel();
-    this.bin.promoCode.code=(<HTMLInputElement>event.target).value;
-    this._binService.price(this.bin).subscribe(next=>{
+  private changePromoCode() {
+    this.bin.promoCode = new PromocodeModel();
+    this.bin.promoCode.code = (<HTMLInputElement>event.target).value;
+    this._binService.price(this.bin).subscribe(next => {
       this._binRxService.addPromoCode(this.bin.promoCode);
       console.log(next);
-      this.bin.price=next;
-    },error=>{
-    console.error(error);
+      this._binRxService.binSetPrice(next);
+    }, error => {
+      console.error(error);
     });
   }
 
