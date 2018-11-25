@@ -1,0 +1,41 @@
+.container {
+  padding: 0 5vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #9fafc7;
+}
+
+.products_container {
+  margin-left: 1vw;
+  padding: 0 5vw;
+}
+
+.items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.one_item {
+  margin-bottom: 5vh;
+}
+
+.loader_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader_buttons > button {
+  width: 3vw;
+  height: 2vw;
+  font-size: 1vw;
+  border-radius: .3vw;
+  margin: 1vw 2vw;
+  background-color: #277ff6;
+  color: white;
+  border: 4px #277ff6 solid;
+  cursor: pointer;
+}

@@ -1,0 +1,27 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: #e7e8ee;
+  height: 10vh;
+}
+
+.logo{
+  background: url("src/assets/logoo.png") no-repeat center;
+  background-size: contain;
+  min-width: 20%;
+  height: 70%;
+}
+
+.info{
+  word-break: break-word;
+  text-align: center;
+  max-width: 35%;
+}
+
+.copyright{
+  text-align: center;
+  min-width: 20%;
+}
