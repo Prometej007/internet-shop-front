@@ -2,25 +2,25 @@
 
 
   <br>
-  <h3>category</h3>
+  <h3>Категорія</h3>
   <div *ngFor="let one of category">
     <input  id="category-{{one.id}}" type="checkbox" name="category" value="{{one.id}}" >
     <label for="category-{{one.id}}">{{one.name.valueUa}}</label>
   </div>
   <br>
-  <h3>materials</h3>
+  <h3>Матеріал</h3>
   <div *ngFor="let one of materials">
     <input  id="materials-{{one.id}}" type="checkbox" name="materials" value="{{one.id}}" >
     <label for="materials-{{one.id}}">{{one.name.valueUa}}</label>
   </div>
   <br>
-  <h3>softness</h3>
+  <h3>Жорсткість</h3>
   <div *ngFor="let one of softness">
     <input  id="softness-{{one}}" type="checkbox" name="softness" value="{{one}}" >
     <label for="softness-{{one}}">{{one}}</label>
   </div>
   <br>
-  <h3>productType</h3>
+  <h3>Тип продукту</h3>
   <div *ngFor="let one of productType">
     <input  id="productType-{{one}}" type="checkbox" name="productType" value="{{one}}" >
     <label for="productType-{{one}}">{{one}}</label>
@@ -36,28 +36,28 @@
     <label for="winterSummerOption-false">false</label>
   </div>
   <br>
-  <h3>price</h3>
+  <h3>Ціна</h3>
   <div>
     <input  id="minPrice" type="number" name="minPrice" value="0">
     <label for="minPrice">-</label>
     <input  id="maxPrice" type="number" name="maxPrice" value="100000000000">
   </div>
   <br>
-  <h3>height</h3>
+  <h3>Висота</h3>
   <div>
     <input  id="minHeight" type="number" name="minHeight" value="0">
     <label for="minHeight">-</label>
     <input  id="maxHeight" type="number" name="maxHeight" value="100000000000">
   </div>
   <br>
-  <h3>height</h3>
+  <h3>Ширина</h3>
   <div>
     <input  id="minWidth" type="number" name="minWidth" value="0">
     <label for="minWidth">-</label>
     <input  id="maxWidth" type="number" name="maxWidth" value="100000000000">
   </div>
   <br>
-  <h3>length</h3>
+  <h3>Довжина</h3>
   <div>
     <input  id="minLength" type="number" name="minLength" value="0">
     <label for="minLength">-</label>

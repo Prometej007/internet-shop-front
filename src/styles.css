@@ -42,3 +42,7 @@
 .disable{
   display: none!important;
 }
+
+body{
+  margin: 0;
+}

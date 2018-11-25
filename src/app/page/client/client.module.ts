@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientComponent } from './client.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -12,6 +12,8 @@ import { ProductContainerOneComponent } from './product-container/product-contai
 import { ProductContainerFilterComponent } from './product-container/product-container-filter/product-container-filter.component';
 import { BinContainerComponent } from './bin-container/bin-container.component';
 import { BinOrderComponent } from './bin-order/bin-order.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -29,7 +31,10 @@ import { BinOrderComponent } from './bin-order/bin-order.component';
     ProductContainerOneComponent,
     ProductContainerFilterComponent,
     BinContainerComponent,
-    BinOrderComponent
-  ]
+    BinOrderComponent,
+    HeaderComponent,
+    FooterComponent
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ClientModule { }
