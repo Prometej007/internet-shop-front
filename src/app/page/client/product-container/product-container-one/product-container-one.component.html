@@ -1,4 +1,5 @@
-<p routerLink="/product/{{product.id}}">
-  product-container-one {{product.id}}!
-  {{product.name.valueUa}}!
-</p>
+<div class="container"><img [src]="product.image.path" alt="image">
+  <a class="link" [routerLink]="[product.id]">
+    <p>{{product.name.valueUa}}</p>
+  </a>
+</div>

@@ -1,12 +1,14 @@
-<app-product-container-filter (filterForm)="filter($event)"></app-product-container-filter>
-<hr>
-<hr>
-<h3>product</h3>
-<hr>
-<hr>
-<app-product-container-one *ngFor="let one of products" [product]="one"></app-product-container-one>
-<button (click)="prevPage()" *ngIf="!productsPage.first">prev</button>
-<button (click)="nextPage()" *ngIf="!productsPage.last">next</button>
-<p>
-  product-container works!
-</p>
+<div class="container">
+  <app-product-container-filter (filterForm)="filter($event)"></app-product-container-filter>
+  <div class="products_container">
+    <h3>Каталог</h3>
+    <div class="items">
+      <app-product-container-one class="one_item" *ngFor="let one of products"
+                                 [product]="one"></app-product-container-one>
+    </div>
+    <div class="loader_buttons">
+      <button (click)="prevPage()" *ngIf="!productsPage.first">prev</button>
+      <button (click)="nextPage()" *ngIf="!productsPage.last">next</button>
+    </div>
+  </div>
+</div>

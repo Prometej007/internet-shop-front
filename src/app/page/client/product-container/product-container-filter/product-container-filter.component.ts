@@ -8,7 +8,8 @@ import {MaterialsModel} from '../../../../shared/model/materials.model';
   selector: 'app-product-container-filter',
   templateUrl: './product-container-filter.component.html',
   styleUrls: ['./product-container-filter.component.css'],
-  providers: [CategoryService, MaterialService]
+  providers: [CategoryService, MaterialService],
+  host: {display: 'block'}
 })
 export class ProductContainerFilterComponent implements OnInit {
   category: CategoryModel[] = [];

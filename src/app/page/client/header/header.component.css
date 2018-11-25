@@ -1,11 +1,11 @@
 .container{
-  background-color: aliceblue;
+  background-color: #e7e8ee;
 }
 
 .phone_numbers{
   font-size: 1vw;
   cursor: default;
-  color: deepskyblue;
+  color: #277ff6;
   flex-direction: column;
   justify-content: space-around!important;
   align-items: flex-start!important;
@@ -17,6 +17,7 @@
 }
 
 .search_container{
+  padding-top: 2vh;
   display: flex;
   justify-content: space-around!important;
   flex-wrap: nowrap;
@@ -38,16 +39,17 @@
   width: 20vw;
   height: 3vh;
   margin: .3vw;
-  border: 2px deepskyblue solid;
+  border: 2px #277ff6 solid;
   border-radius: 10px;
 }
 
 .search_button{
   height: 3.5vh;
-  background-color: deepskyblue;
+  background-color: #277ff6;
   color: white;
-  border: 4px deepskyblue solid;
+  border: 4px #277ff6 solid;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .logo{
@@ -61,13 +63,27 @@
 }
 
 .svg_icon__cart{
-  fill: deepskyblue;
+  fill: #277ff6;
   width: 3vw;
+  cursor: pointer;
 }
 
 .svg_icon__phone_big{
-  fill: deepskyblue;
+  fill: #277ff6;
   width: 3vw;
+}
+
+.navigation_bar{
+  padding: 3vh 15vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navigation_bar>a{
+  text-decoration: none;
+  font-size: 1.4vw;
+  color: #277ff6;
 }
 
 .inner_container{

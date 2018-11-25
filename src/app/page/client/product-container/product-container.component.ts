@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductModel} from '../../../shared/model/product.model';
 import {ProductService} from '../../../shared/service/product.service';
+import {DictionaryModel} from '../../../shared/model/dictionary.model';
+import {ImageModel} from '../../../shared/model/image.model';
 
 @Component({
   selector: 'app-product-container',
@@ -24,6 +26,7 @@ export class ProductContainerComponent implements OnInit {
     }, error => {
       console.error(error);
     });
+    this.mockProducts()//todo rm mock
   }
 
   nextPage() {
@@ -61,6 +64,18 @@ export class ProductContainerComponent implements OnInit {
     }, error => {
       console.error(error);
     });
+  }
+
+  mockProducts() {
+    for (let i = 0; i < 10; i++) {
+      let prod = new ProductModel();
+      prod.id = i;
+      prod.name = new DictionaryModel();
+      prod.image = new ImageModel();
+      prod.image.path = 'logoo.png';
+      prod.name.valueUa = 'some name UA';
+      this.products.push(prod);
+    }
   }
 
   ngOnInit() {

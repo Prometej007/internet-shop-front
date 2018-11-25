@@ -1,78 +1,74 @@
-<form #htmlFormElement>
-
-
-  <br>
-  <h3>Категорія</h3>
-  <div *ngFor="let one of category">
-    <input  id="category-{{one.id}}" type="checkbox" name="category" value="{{one.id}}" >
-    <label for="category-{{one.id}}">{{one.name.valueUa}}</label>
-  </div>
-  <br>
-  <h3>Матеріал</h3>
-  <div *ngFor="let one of materials">
-    <input  id="materials-{{one.id}}" type="checkbox" name="materials" value="{{one.id}}" >
-    <label for="materials-{{one.id}}">{{one.name.valueUa}}</label>
-  </div>
-  <br>
-  <h3>Жорсткість</h3>
-  <div *ngFor="let one of softness">
-    <input  id="softness-{{one}}" type="checkbox" name="softness" value="{{one}}" >
-    <label for="softness-{{one}}">{{one}}</label>
-  </div>
-  <br>
-  <h3>Тип продукту</h3>
-  <div *ngFor="let one of productType">
-    <input  id="productType-{{one}}" type="checkbox" name="productType" value="{{one}}" >
-    <label for="productType-{{one}}">{{one}}</label>
-  </div>
-  <br>
-  <h3>winterSummerOption</h3>
-  <div>
-    <input  id="winterSummerOption-true" type="radio" name="winterSummerOption" value="true">
-    <label for="winterSummerOption-true">true</label>
-  </div>
-  <div>
-    <input  id="winterSummerOption-false" type="radio" name="winterSummerOption" value="false">
-    <label for="winterSummerOption-false">false</label>
-  </div>
-  <br>
-  <h3>Ціна</h3>
-  <div>
-    <input  id="minPrice" type="number" name="minPrice" value="0">
-    <label for="minPrice">-</label>
-    <input  id="maxPrice" type="number" name="maxPrice" value="100000000000">
-  </div>
-  <br>
-  <h3>Висота</h3>
-  <div>
-    <input  id="minHeight" type="number" name="minHeight" value="0">
-    <label for="minHeight">-</label>
-    <input  id="maxHeight" type="number" name="maxHeight" value="100000000000">
-  </div>
-  <br>
-  <h3>Ширина</h3>
-  <div>
-    <input  id="minWidth" type="number" name="minWidth" value="0">
-    <label for="minWidth">-</label>
-    <input  id="maxWidth" type="number" name="maxWidth" value="100000000000">
-  </div>
-  <br>
-  <h3>Довжина</h3>
-  <div>
-    <input  id="minLength" type="number" name="minLength" value="0">
-    <label for="minLength">-</label>
-    <input  id="maxLength" type="number" name="maxLength" value="100000000000">
-  </div>
-  <br>
-  <h3>MaximumLoad</h3>
-  <div>
-    <input  id="minMaximumLoad" type="number" name="minMaximumLoad" value="0">
-    <label for="minMaximumLoad">-</label>
-    <input  id="maxMaximumLoad" type="number" name="maxMaximumLoad" value="100000000000">
-  </div>
-
-
-
-</form>
-
-<button (click)="send()">test</button>
+<div class="container">
+  <form #htmlFormElement class="filter_form">
+    <h3>Категорія</h3>
+    <div>
+      <div *ngFor="let one of category">
+        <input id="category-{{one.id}}" type="checkbox" name="category" value="{{one.id}}">
+        <label for="category-{{one.id}}">{{one.name.valueUa}}</label>
+      </div>
+    </div>
+    <h3>Матеріал</h3>
+    <div>
+      <div *ngFor="let one of materials">
+        <input id="materials-{{one.id}}" type="checkbox" name="materials" value="{{one.id}}">
+        <label for="materials-{{one.id}}">{{one.name.valueUa}}</label>
+      </div>
+    </div>
+    <h3>Жорсткість</h3>
+    <div>
+      <div *ngFor="let one of softness">
+        <input id="softness-{{one}}" type="checkbox" name="softness" value="{{one}}">
+        <label for="softness-{{one}}">{{one}}</label>
+      </div>
+    </div>
+    <h3>Тип продукту</h3>
+    <div>
+      <div *ngFor="let one of productType">
+        <input id="productType-{{one}}" type="checkbox" name="productType" value="{{one}}">
+        <label for="productType-{{one}}">{{one}}</label>
+      </div>
+    </div>
+    <h3>winterSummerOption</h3>
+    <div>
+      <div>
+        <input id="winterSummerOption-true" type="radio" name="winterSummerOption" value="true">
+        <label for="winterSummerOption-true">true</label>
+      </div>
+      <div>
+        <input id="winterSummerOption-false" type="radio" name="winterSummerOption" value="false">
+        <label for="winterSummerOption-false">false</label>
+      </div>
+    </div>
+    <h3>Ціна</h3>
+    <div class="range_input">
+      <input id="minPrice" type="number" name="minPrice" value="0">
+      <label for="minPrice">-</label>
+      <input id="maxPrice" type="number" name="maxPrice" value="100000000000">
+    </div>
+    <h3>Висота</h3>
+    <div class="range_input">
+      <input id="minHeight" type="number" name="minHeight" value="0">
+      <label for="minHeight">-</label>
+      <input id="maxHeight" type="number" name="maxHeight" value="100000000000">
+    </div>
+    <h3>Ширина</h3>
+    <div class="range_input">
+      <input id="minWidth" type="number" name="minWidth" value="0">
+      <label for="minWidth">-</label>
+      <input id="maxWidth" type="number" name="maxWidth" value="100000000000">
+    </div>
+    <h3>Довжина</h3>
+    <div class="range_input">
+      <input id="minLength" type="number" name="minLength" value="0">
+      <label for="minLength">-</label>
+      <input id="maxLength" type="number" name="maxLength" value="100000000000">
+    </div>
+    <h3>MaximumLoad</h3>
+    <div class="range_input">
+      <input id="minMaximumLoad" type="number" name="minMaximumLoad" value="0">
+      <label for="minMaximumLoad">-</label>
+      <input id="maxMaximumLoad" type="number" name="maxMaximumLoad" value="100000000000">
+    </div>
+  </form>
+  <button class="submit_button" (click)="send()">test</button>
+</div>
